@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #000;
+}
+
+body {
+  background: url(/assets/images/login_bg.jpg) no-repeat center/cover;
+  /* background-size: cover; */
+}
+
+.header {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.loginAndResi {
+  width: 400px;
+  height: 310px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(58, 145, 226, 0.4);
+  box-shadow: 0px 0px 50px rgba(20, 196, 240, 0.6);
+}
+
+.title {
+  height: 60px;
+  line-height: 60px;
+  background: url(/assets/images/login_title.png) no-repeat center center;
+}
+
+input {
+  box-shadow: 0 0 0 1000px #49a7cc inset;
+}
+
+input::-webkit-input-placeholder {
+  padding-left: 5px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.regiBox {
+  display: none;
+}
+
+.layui-form {
+  padding: 0 30px;
+}
+
+#gotoRegi, #gotoLogin {
+  float: right;
+  color: rgb(0, 0, 0);
+}
+
+#gotoRegi:hover, #gotoLogin:hover {
+  color: #fff;
+}
+
+.layui-form-item {
+  position: relative;
+}
+
+.layui-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.layui-input {
+  border: 0;
+  outline: none;
+  padding-left: 30px;
+  background-color: rgba(0, 0, 0, 0);
+}

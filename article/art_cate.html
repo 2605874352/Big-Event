@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+  <link rel="stylesheet" href="/assets/css/article/art_cate.css">
+</head>
+
+<body>
+  <div class="layui-card">
+    <div class="layui-card-header">
+      文章类别管理
+      <button type="button" id="btnAdd" class="layui-btn layui-btn-sm layui-btn-normal">添加类别</button>
+    </div>
+    <div class="layui-card-body">
+      <table class="layui-table">
+        <colgroup>
+          <col>
+          <col>
+          <col width="200">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>分类名称</th>
+            <th>分类别名</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 准备模板（表格tr） -->
+  <script type="text/html" id="trTpl">
+    {{each data v i}}
+    <tr>
+      <td>{{v.name}}</td>
+      <td>{{v.alias}}</td>
+      <td>
+          <button type="button" class="layui-btn layui-btn-xs editBtn" data-id="{{v.Id}}">编辑</button>
+          <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delBtn" data-id="{{v.Id}}">删除</button>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+
+  <!-- 放添加弹出层的form表单结构 -->
+  <script type="text/html" id="addForm">
+    <form class="layui-form" id="form" action="">
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类别名</label>
+        <div class="layui-input-block">
+          <input type="text" name="alias" required  lay-verify="required" placeholder="请输入别名" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+  <!-- 放编辑弹出层的form表单结构 -->
+  <script type="text/html" id="editFormTpl">
+    <form class="layui-form" lay-filter="editForm" id="editForm" action="">
+       <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">id</label>
+        <div class="layui-input-block">
+          <input type="text" name="Id" required readonly lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">分类别名</label>
+        <div class="layui-input-block">
+          <input type="text" name="alias" required  lay-verify="required" placeholder="请输入别名" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+  <script src="/assets/lib/layui/layui.all.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/ajaxBase.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <script src="/assets/js/article/art_cate.js"></script>
+</body>
+
+</html>
